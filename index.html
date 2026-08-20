@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Life Before Phone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
     --display: 'Kalam', cursive;
     --mono: 'Space Mono', monospace;
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  *{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{margin:0;padding:0;touch-action:manipulation;}
   body{
     background-color:var(--paper);
     background-image: radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px);
@@ -29,6 +29,7 @@
     color:var(--ink);
     font-family:var(--mono);
     min-height:100vh;
+    min-height:100dvh;
     overflow-x:hidden;
   }
   svg.noise-def{position:absolute;width:0;height:0;}
@@ -39,43 +40,43 @@
 
   /* ---------- HOME ---------- */
   header.hero{
-    padding:56px 24px 28px;
+    padding:44px 20px 24px;
     text-align:center;
   }
   header.hero .eyebrow{
     font-size:12px; letter-spacing:3px; text-transform:uppercase;
-    color:var(--ink-soft); margin-bottom:10px;
+    color:var(--ink-soft); margin-bottom:8px;
   }
   header.hero h1{
     font-family:var(--display);
-    font-size:clamp(38px,7vw,72px);
+    font-size:clamp(34px,6.5vw,70px);
     margin:0;
-    line-height:1;
+    line-height:1.05;
     color:var(--ink);
     transform:rotate(-1deg);
   }
   header.hero h1 span{color:var(--rust);}
   header.hero p{
-    max-width:520px; margin:16px auto 0;
-    color:var(--ink-soft); font-size:14px; line-height:1.6;
+    max-width:520px; margin:14px auto 0;
+    color:var(--ink-soft); font-size:13.5px; line-height:1.5;
   }
 
   .box{
-    max-width:1080px; margin:0 auto; padding:20px 24px 80px;
+    max-width:1080px; margin:0 auto; padding:16px 20px 60px;
     display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(190px,1fr));
-    gap:22px 18px;
+    grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+    gap:18px 16px;
   }
   .card{
     background:var(--paper-dark);
     border:1px solid rgba(0,0,0,0.12);
-    border-radius:3px;
-    padding:16px 14px 14px;
+    border-radius:4px;
+    padding:16px 14px;
     cursor:pointer;
     position:relative;
     box-shadow:0 2px 0 rgba(0,0,0,0.06), 0 8px 16px -10px rgba(0,0,0,0.25);
     transition:transform .18s ease, box-shadow .18s ease;
-    min-height:132px;
+    min-height:128px;
     display:flex; flex-direction:column; justify-content:flex-end;
   }
   .card:hover{
@@ -83,36 +84,36 @@
     box-shadow:0 6px 0 rgba(0,0,0,0.08), 0 16px 24px -12px rgba(0,0,0,0.3);
   }
   .card:focus-visible,.pill-btn:focus-visible,.back-btn:focus-visible{
-    outline:3px solid var(--rust); outline-offset:4px;
+    outline:3px solid var(--rust); outline-offset:3px;
   }
   .card:active{transform:translateY(0) rotate(var(--r,0deg)) scale(.98);}
   .card::before{
     content:'';
-    position:absolute; top:-8px; left:50%; transform:translateX(-50%) rotate(-3deg);
-    width:34px; height:14px; background:rgba(255,255,255,0.55);
+    position:absolute; top:-7px; left:50%; transform:translateX(-50%) rotate(-3deg);
+    width:34px; height:13px; background:rgba(255,255,255,0.6);
     border:1px solid rgba(0,0,0,0.08);
   }
   .card .num{
-    position:absolute; top:10px; right:12px;
-    font-size:11px; color:var(--ink-soft); opacity:.6;
+    position:absolute; top:8px; right:10px;
+    font-size:10px; color:var(--ink-soft); opacity:.6;
   }
-  .card .icon{font-size:26px; margin-bottom:10px; display:block;}
+  .card .icon{font-size:24px; margin-bottom:8px; display:block;}
   .card h3{
-    font-family:var(--display); font-size:19px; margin:0 0 2px; line-height:1.15;
+    font-family:var(--display); font-size:18px; margin:0 0 2px; line-height:1.15;
   }
-  .card p{margin:0; font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.5px;}
+  .card p{margin:0; font-size:10px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.5px;}
 
   /* ---------- FOOTER ---------- */
   footer.home-footer{
     max-width:1080px;
     margin:0 auto;
-    padding:20px 24px 50px;
+    padding:16px 20px 40px;
     border-top:1px dashed rgba(0,0,0,0.15);
     display:flex;
     justify-content:space-between;
-    align-items:flex-end;
+    align-items:center;
     flex-wrap:wrap;
-    gap:18px;
+    gap:14px;
     color:var(--ink-soft);
     font-size:12px;
   }
@@ -121,92 +122,85 @@
     text-decoration:none;
     border-bottom:1px solid var(--rust);
     padding-bottom:1px;
-    transition:opacity 0.2s;
   }
-  .footer-left a:hover{
-    opacity:0.75;
-  }
-  .footer-center{
-    text-align:center;
-    flex:1;
-  }
-  .footer-fun{
-    font-size:12px;
-    letter-spacing:1px;
-    margin-bottom:3px;
-    opacity:0.8;
-  }
-  .footer-author{
-    font-family:var(--display);
-    font-size:20px;
-    color:var(--ink);
-    font-weight:bold;
-  }
+  .footer-center{text-align:center; flex:1;}
+  .footer-fun{font-size:11px; letter-spacing:1px; margin-bottom:2px; opacity:0.8;}
+  .footer-author{font-family:var(--display); font-size:19px; color:var(--ink); font-weight:bold;}
 
   /* ---------- EXPERIENCE OVERLAY ---------- */
   .stage{
     position:fixed; inset:0; background:var(--paper);
     transform:translateY(100%);
-    transition:transform .38s cubic-bezier(.2,.8,.2,1);
-    z-index:50; display:flex; flex-direction:column;
+    transition:transform .34s cubic-bezier(.2,.8,.2,1);
+    z-index:100; display:flex; flex-direction:column;
+    height:100vh; height:100dvh;
   }
   .stage.open{transform:translateY(0);}
   .stage-top{
     display:flex; align-items:center; justify-content:space-between;
-    padding:16px 20px; border-bottom:1px solid rgba(0,0,0,.1);
+    padding:12px 16px; border-bottom:1px solid rgba(0,0,0,.1);
+    gap:10px;
   }
   .back-btn{
-    font-family:var(--mono); font-size:12px; letter-spacing:1px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.5px;
     background:var(--ink); color:var(--paper); border:none;
-    padding:9px 16px; border-radius:2px; cursor:pointer; text-transform:uppercase;
+    padding:8px 12px; border-radius:3px; cursor:pointer; text-transform:uppercase;
+    white-space:nowrap;
   }
   .back-btn:hover{background:var(--rust);}
-  .stage-title{font-family:var(--display); font-size:24px; margin:0; text-align:center; flex:1;}
+  .stage-title{
+    font-family:var(--display); font-size:20px; margin:0; text-align:center; flex:1;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .stage-spacer{width:80px;}
   .stage-hint{
-    text-align:center; font-size:11.5px; color:var(--ink-soft); padding:0 16px 8px; min-height:16px;
+    text-align:center; font-size:11px; color:var(--ink-soft); padding:6px 14px 4px; min-height:16px; line-height:1.3;
   }
   .stage-body{
     flex:1; position:relative; display:flex; align-items:center; justify-content:center;
-    overflow:hidden; padding:10px;
+    overflow:hidden; padding:8px 12px;
   }
   .exp-canvas-wrap{
-    position:relative; width:min(760px,92vw); height:min(460px,64vh);
+    position:relative; width:min(760px,94vw); height:min(440px,58vh);
     background:#fff; border:1px solid rgba(0,0,0,.12);
-    box-shadow:0 10px 30px -10px rgba(0,0,0,.3);
+    box-shadow:0 10px 25px -10px rgba(0,0,0,.25);
     border-radius:4px; overflow:hidden;
+    touch-action:none;
   }
   .exp-canvas-wrap canvas{display:block; width:100%; height:100%; touch-action:none;}
   .ctrl-row{
-    display:flex; gap:10px; justify-content:center; padding:14px 0 26px; flex-wrap:wrap;
+    display:flex; gap:8px; justify-content:center; padding:10px 14px 20px; flex-wrap:wrap;
   }
   .pill-btn{
-    font-family:var(--mono); font-size:12px; background:var(--paper-dark);
-    border:1px solid rgba(0,0,0,.15); padding:8px 14px; border-radius:20px; cursor:pointer;
+    font-family:var(--mono); font-size:11px; background:var(--paper-dark);
+    border:1px solid rgba(0,0,0,.15); padding:7px 12px; border-radius:18px; cursor:pointer;
   }
   .pill-btn:hover{background:var(--mustard); border-color:var(--mustard);}
   .pill-btn:active{transform:translateY(1px) scale(.97);}
   .status{
-    position:absolute; top:10px; left:10px; font-size:11px; background:rgba(255,255,255,.88);
-    padding:4px 8px; border-radius:3px; letter-spacing:.5px; z-index:10; pointer-events:none;
+    position:absolute; top:8px; left:8px; font-size:10.5px; background:rgba(255,255,255,.9);
+    padding:3px 8px; border-radius:3px; letter-spacing:.4px; z-index:10; pointer-events:none;
   }
   .celebrate{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family:var(--display); font-size:34px; color:var(--rust); background:rgba(255,255,255,.6);
-    opacity:0; pointer-events:none; transition:opacity .3s; z-index:20;
+    font-family:var(--display); font-size:28px; color:var(--rust); background:rgba(255,255,255,.7);
+    opacity:0; pointer-events:none; transition:opacity .3s; z-index:20; text-align:center; padding:16px;
   }
   .celebrate.show{opacity:1;}
   .spark{
-    position:absolute; width:8px; height:8px; border-radius:50%; pointer-events:none;
+    position:absolute; width:7px; height:7px; border-radius:50%; pointer-events:none;
     animation:pop .55s ease-out forwards;
   }
   @keyframes pop{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0;}}
 
   @media(max-width:560px){
-    header.hero{padding:40px 16px 20px;}
-    .box{grid-template-columns:repeat(2,1fr); gap:14px;}
-    .card{min-height:118px; padding:12px;}
-    footer.home-footer{flex-direction:column; align-items:center; text-align:center;}
-    .footer-left{text-align:center;}
+    header.hero{padding:30px 14px 16px;}
+    .box{grid-template-columns:repeat(2,1fr); gap:12px 10px; padding:10px 12px 40px;}
+    .card{min-height:112px; padding:12px 10px;}
+    .stage-spacer{display:none;}
+    .stage-title{font-size:17px;}
+    .exp-canvas-wrap{height:min(390px,52vh);}
+    footer.home-footer{flex-direction:column; align-items:center; text-align:center; gap:10px;}
   }
 </style>
 </head>
@@ -232,15 +226,15 @@
     <div class="footer-fun">Made with fun</div>
     <div class="footer-author">Made by Samyuktha</div>
   </div>
-  <div style="min-width:140px;"></div>
+  <div style="min-width:120px;"></div>
 </footer>
 
 <!-- STAGE -->
 <div class="stage" id="stage">
   <div class="stage-top">
-    <button class="back-btn" id="backBtn">← Back to the box</button>
+    <button class="back-btn" id="backBtn">← Back</button>
     <h2 class="stage-title" id="stageTitle"></h2>
-    <div style="width:120px"></div>
+    <div class="stage-spacer"></div>
   </div>
   <div class="stage-hint" id="stageHint"></div>
   <div class="stage-body" id="stageBody"></div>
@@ -250,17 +244,17 @@
 <script>
 const ITEMS = [
   {id:'sand', icon:'🪴', title:'Sand food', desc:'sand pot, water & garnish'},
-  {id:'swirl', icon:'🛁', title:'Water tub swirl', desc:'swirl the tub with mouse'},
-  {id:'rain', icon:'🌧️', title:'Raindrops on the window', desc:'race two drops'},
-  {id:'stone', icon:'🪨', title:'Kicking stones', desc:'click the stone'},
+  {id:'swirl', icon:'🛁', title:'Water tub swirl', desc:'swirl the tub with finger/mouse'},
+  {id:'rain', icon:'🌧️', title:'Raindrops on window', desc:'race two drops'},
+  {id:'stone', icon:'🪨', title:'Kicking stones', desc:'tap the stone to kick'},
   {id:'ants', icon:'🐜', title:'Watching ants', desc:'drop a crumb'},
-  {id:'dvd', icon:'📀', title:'DVD hitting the corner', desc:'nudge it to a corner'},
-  {id:'pambaram', icon:'🌀', title:'Pambaram – spinning top', desc:'pull the cord to spin'},
+  {id:'dvd', icon:'📀', title:'DVD hitting corner', desc:'nudge it to a corner'},
+  {id:'pambaram', icon:'🌀', title:'Pambaram – top', desc:'pull cord to spin'},
   {id:'pencil', icon:'✏️', title:'Eraser pencil dots', desc:'poke black dots into eraser'},
-  {id:'magnets', icon:'🧲', title:'Two cylinder magnets', desc:'drag close to repel / attract'},
-  {id:'chips', icon:'🧤', title:'Chips on fingers', desc:'drag cone chips onto hand'},
-  {id:'tornado', icon:'🌪️', title:'Water bottle tornado', desc:'swirl bottle in circles'},
-  {id:'gum', icon:'❤️', title:'Peel the gum heart', desc:'pour, dry 10s & peel pattern'}
+  {id:'magnets', icon:'🧲', title:'Two magnets', desc:'drag close to repel / attract'},
+  {id:'chips', icon:'🧤', title:'Chips on fingers', desc:'drag cone chips onto fingertips'},
+  {id:'tornado', icon:'🌪️', title:'Bottle tornado', desc:'swirl bottle in circles'},
+  {id:'gum', icon:'❤️', title:'Peel glue heart', desc:'pour, dry 10s & peel whole'}
 ];
 
 const box = document.getElementById('box');
@@ -293,17 +287,25 @@ function openExp(id){
   stageControls.innerHTML='';
   stage.classList.add('open');
   document.body.style.overflow='hidden';
+  history.pushState({expOpen:true, id}, '', `#${id}`);
   current = EXPERIENCES[id];
   current.mount(stageBody, stageHint);
 }
-function closeExp(){
+
+function closeExp(fromHistory = false){
+  if(!stage.classList.contains('open')) return;
   stage.classList.remove('open');
   document.body.style.overflow='';
   if(current && current.unmount) current.unmount();
   current=null;
+  if(!fromHistory && window.location.hash){
+    history.back();
+  }
 }
-document.getElementById('backBtn').addEventListener('click', closeExp);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&stage.classList.contains('open')) closeExp();});
+
+document.getElementById('backBtn').addEventListener('click', ()=>closeExp(false));
+window.addEventListener('popstate', ()=>closeExp(true));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&stage.classList.contains('open')) closeExp(false); });
 
 function makeCanvasWrap(){
   const wrap=document.createElement('div'); wrap.className='exp-canvas-wrap';
@@ -311,7 +313,8 @@ function makeCanvasWrap(){
   stageBody.appendChild(wrap);
   function resize(){
     const r=wrap.getBoundingClientRect();
-    canvas.width=r.width*devicePixelRatio; canvas.height=r.height*devicePixelRatio;
+    canvas.width=r.width*(window.devicePixelRatio||1); 
+    canvas.height=r.height*(window.devicePixelRatio||1);
   }
   resize();
   window.addEventListener('resize', resize);
@@ -343,8 +346,9 @@ const EXPERIENCES = {};
 /* ---- 1. SAND FOOD ---- */
 EXPERIENCES.sand = {
   mount(body,hint){
-    hint.textContent='Drag on the sand pot to mold and sculpt! Pour water to wet, and place fresh basil & flower garnishes.';
+    hint.textContent='Drag on the sand pot to mold and sculpt! Pour water to wet, and place fresh garnishes.';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; status.textContent='Mode: Sculpt Sand'; wrap.appendChild(status);
 
     let activeTool = 'sculpt';
@@ -361,20 +365,13 @@ EXPERIENCES.sand = {
       status.textContent = 'Mode: Sculpt Sand';
     }
 
-    function pos(e){
-      const r=canvas.getBoundingClientRect();
-      const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-      const cy=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
-      return {x:cx*canvas.width/r.width, y:cy*canvas.height/r.height};
-    }
-
     function handleAction(p){
       const w=canvas.width, h=canvas.height;
       const potX = w/2, potY = h*0.48, potR = Math.min(w,h)*0.36;
       if(Math.hypot(p.x-potX, p.y-potY) > potR) return;
 
       if(activeTool === 'sculpt'){
-        strokes.push({x:p.x, y:p.y, r:16*devicePixelRatio, wet:wetness});
+        strokes.push({x:p.x, y:p.y, r:16*dpr, wet:wetness});
       } else if(activeTool === 'basil' || activeTool === 'flower'){
         garnishes.push({x:p.x, y:p.y, type:activeTool, rot:(Math.random()-0.5)*0.8});
       }
@@ -382,10 +379,10 @@ EXPERIENCES.sand = {
 
     canvas.addEventListener('pointerdown', e=>{
       drawing=true; 
-      handleAction(pos(e));
+      handleAction(point(e,canvas));
     });
     canvas.addEventListener('pointermove', e=>{
-      if(drawing && activeTool==='sculpt') handleAction(pos(e));
+      if(drawing && activeTool==='sculpt') handleAction(point(e,canvas));
     });
     window.addEventListener('pointerup', ()=>drawing=false);
 
@@ -396,22 +393,22 @@ EXPERIENCES.sand = {
 
       const potX = w/2, potY = h*0.48, potR = Math.min(w,h)*0.36;
 
-      ctx.beginPath(); ctx.arc(potX, potY+6*devicePixelRatio, potR+14*devicePixelRatio, 0, Math.PI*2);
+      ctx.beginPath(); ctx.arc(potX, potY+6*dpr, potR+14*dpr, 0, Math.PI*2);
       ctx.fillStyle = 'rgba(0,0,0,0.1)'; ctx.fill();
 
-      ctx.beginPath(); ctx.arc(potX, potY, potR+14*devicePixelRatio, 0, Math.PI*2);
+      ctx.beginPath(); ctx.arc(potX, potY, potR+14*dpr, 0, Math.PI*2);
       ctx.fillStyle = '#9e472a'; ctx.fill();
-      ctx.lineWidth=5*devicePixelRatio; ctx.strokeStyle='#662c17'; ctx.stroke();
+      ctx.lineWidth=5*dpr; ctx.strokeStyle='#662c17'; ctx.stroke();
 
       ctx.beginPath(); ctx.arc(potX, potY, potR, 0, Math.PI*2);
       const baseSand = wetness > 0.4 ? '#9c7b4c' : '#dfc48c';
       ctx.fillStyle = baseSand; ctx.fill();
 
-      for(let i=0; i<80; i++){
+      for(let i=0; i<60; i++){
         const a = (i*137.5)*Math.PI/180;
         const dist = (i%20)*potR/21;
         ctx.fillStyle = wetness>0.3?'rgba(90,60,30,0.25)':'rgba(160,130,80,0.3)';
-        ctx.fillRect(potX+Math.cos(a)*dist, potY+Math.sin(a)*dist, 2.5*devicePixelRatio, 2.5*devicePixelRatio);
+        ctx.fillRect(potX+Math.cos(a)*dist, potY+Math.sin(a)*dist, 2.5*dpr, 2.5*dpr);
       }
 
       strokes.forEach(s=>{
@@ -424,16 +421,16 @@ EXPERIENCES.sand = {
         ctx.save(); ctx.translate(g.x, g.y); ctx.rotate(g.rot);
         if(g.type==='basil'){
           ctx.fillStyle='#2e7d32';
-          ctx.beginPath(); ctx.ellipse(0, -12*devicePixelRatio, 8*devicePixelRatio, 16*devicePixelRatio, 0.3, 0, Math.PI*2); ctx.fill();
-          ctx.beginPath(); ctx.ellipse(0, 12*devicePixelRatio, 8*devicePixelRatio, 16*devicePixelRatio, -0.3, 0, Math.PI*2); ctx.fill();
-          ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,-18*devicePixelRatio); ctx.lineTo(0,18*devicePixelRatio); ctx.stroke();
+          ctx.beginPath(); ctx.ellipse(0, -12*dpr, 8*dpr, 16*dpr, 0.3, 0, Math.PI*2); ctx.fill();
+          ctx.beginPath(); ctx.ellipse(0, 12*dpr, 8*dpr, 16*dpr, -0.3, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,-18*dpr); ctx.lineTo(0,18*dpr); ctx.stroke();
         } else {
           ctx.fillStyle='#e91e63';
           for(let i=0; i<5; i++){
             ctx.rotate(Math.PI*2/5);
-            ctx.beginPath(); ctx.ellipse(0, 11*devicePixelRatio, 6*devicePixelRatio, 9*devicePixelRatio, 0, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.ellipse(0, 11*dpr, 6*dpr, 9*dpr, 0, 0, Math.PI*2); ctx.fill();
           }
-          ctx.beginPath(); ctx.arc(0,0,5*devicePixelRatio,0,Math.PI*2); ctx.fillStyle='#ffeb3b'; ctx.fill();
+          ctx.beginPath(); ctx.arc(0,0,5*dpr,0,Math.PI*2); ctx.fillStyle='#ffeb3b'; ctx.fill();
         }
         ctx.restore();
       });
@@ -443,17 +440,17 @@ EXPERIENCES.sand = {
     render();
 
     const row=addCtrlRow();
-    row.appendChild(pillBtn('🖐️ Sculpt / Mold', ()=>{activeTool='sculpt'; status.textContent='Mode: Sculpt Sand with Fingers';}));
+    row.appendChild(pillBtn('🖐️ Sculpt', ()=>{activeTool='sculpt'; status.textContent='Mode: Sculpt Sand';}));
     row.appendChild(pillBtn('💧 Pour Water', ()=>{
       wetness = Math.min(1, wetness + 0.3);
       strokes.forEach(s=>s.wet = Math.min(1, s.wet + 0.3));
-      status.textContent=`Water poured! Moisture: ${Math.round(wetness*100)}%`;
+      status.textContent=`Moisture: ${Math.round(wetness*100)}%`;
     }));
-    row.appendChild(pillBtn('🌿 Basil Strand', ()=>{activeTool='basil'; status.textContent='Mode: Place Basil Garnish';}));
-    row.appendChild(pillBtn('🌸 Flower Strand', ()=>{activeTool='flower'; status.textContent='Mode: Place Flower Garnish';}));
-    row.appendChild(pillBtn('↺ Fresh Sand Pot', reset));
+    row.appendChild(pillBtn('🌿 Basil', ()=>{activeTool='basil'; status.textContent='Mode: Place Basil';}));
+    row.appendChild(pillBtn('🌸 Flower', ()=>{activeTool='flower'; status.textContent='Mode: Place Flower';}));
+    row.appendChild(pillBtn('↺ Reset', reset));
 
-    this._cleanup=()=>{cancelAnimationFrame(raf);};
+    this._cleanup=()=>cancelAnimationFrame(raf);
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
 };
@@ -461,17 +458,18 @@ EXPERIENCES.sand = {
 /* ---- 2. WATER TUB SWIRL ---- */
 EXPERIENCES.swirl = {
   mount(body,hint){
-    hint.textContent='Drag & swirl your mouse in circles (clockwise or counter-clockwise) inside the tub!';
+    hint.textContent='Drag & swirl in circles inside the tub!';
     const {canvas,ctx}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     let particles=[], raf, swirlVelocity=0, lastAngle=null, lastTime=Date.now();
 
     function reset(){
       particles=[]; swirlVelocity=0;
       const w=canvas.width, h=canvas.height;
-      for(let i=0;i<220;i++){
+      for(let i=0;i<180;i++){
         const r = Math.random()*Math.min(w,h)*0.4;
         const a = Math.random()*Math.PI*2;
-        particles.push({r, a, size:2+Math.random()*3, z:Math.random()});
+        particles.push({r, a, size:2+Math.random()*3});
       }
     }
     reset();
@@ -500,12 +498,12 @@ EXPERIENCES.swirl = {
       ctx.fillStyle='#d6edee'; ctx.fillRect(0,0,w,h);
 
       const tubR = Math.min(w,h)*0.44;
-      ctx.beginPath(); ctx.arc(cx,cy,tubR+8*devicePixelRatio,0,Math.PI*2);
+      ctx.beginPath(); ctx.arc(cx,cy,tubR+8*dpr,0,Math.PI*2);
       ctx.fillStyle='#98bcc0'; ctx.fill();
       ctx.beginPath(); ctx.arc(cx,cy,tubR,0,Math.PI*2);
       ctx.fillStyle='#bfe4e7'; ctx.fill();
 
-      const centerDepress = Math.min(24*devicePixelRatio, Math.abs(swirlVelocity)*3);
+      const centerDepress = Math.min(22*dpr, Math.abs(swirlVelocity)*3);
       ctx.beginPath(); ctx.arc(cx,cy,Math.max(4, centerDepress),0,Math.PI*2);
       ctx.fillStyle='rgba(40,110,120,0.5)'; ctx.fill();
 
@@ -519,7 +517,7 @@ EXPERIENCES.swirl = {
         }
         const x = cx + Math.cos(p.a)*p.r;
         const y = cy + Math.sin(p.a)*p.r*0.92;
-        ctx.beginPath(); ctx.arc(x,y,p.size*devicePixelRatio,0,Math.PI*2);
+        ctx.beginPath(); ctx.arc(x,y,p.size*dpr,0,Math.PI*2);
         ctx.fillStyle='rgba(35, 115, 125, 0.45)'; ctx.fill();
       });
 
@@ -530,7 +528,7 @@ EXPERIENCES.swirl = {
     const row=addCtrlRow();
     row.appendChild(pillBtn('↺ Still Water', reset));
     row.appendChild(pillBtn('↻ Push Clockwise', ()=>{swirlVelocity+=2.5;}));
-    row.appendChild(pillBtn('↺ Push Anti-Clockwise', ()=>{swirlVelocity-=2.5;}));
+    row.appendChild(pillBtn('↺ Push Counter', ()=>{swirlVelocity-=2.5;}));
 
     this._cleanup=()=>cancelAnimationFrame(raf);
   },
@@ -540,8 +538,9 @@ EXPERIENCES.swirl = {
 /* ---- 3. RAIN RACE ---- */
 EXPERIENCES.rain = {
   mount(body,hint){
-    hint.textContent='Click a drop to nudge it — race it to the bottom.';
+    hint.textContent='Tap a drop to speed it up — race it to the bottom.';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; status.textContent='racing…'; wrap.appendChild(status);
     let drops=[], raf, winner=null;
     function spawn(){
@@ -553,15 +552,11 @@ EXPERIENCES.rain = {
       winner=null; status.textContent='racing…';
     }
     spawn();
-    function pos(e){
-      const r=canvas.getBoundingClientRect();
-      return {x:(e.clientX-r.left)*canvas.width/r.width, y:(e.clientY-r.top)*canvas.height/r.height};
-    }
-    canvas.addEventListener('click', e=>{
-      const p=pos(e);
+    canvas.addEventListener('pointerdown', e=>{
+      const p=point(e,canvas);
       let best=null,bd=1e9;
       drops.forEach(d=>{const dd=(d.x-p.x)**2+(d.y-p.y)**2; if(dd<bd){bd=dd;best=d;}});
-      if(best && bd < (60*devicePixelRatio)**2) best.vy += 1.4;
+      if(best && bd < (60*dpr)**2) best.vy += 1.4;
     });
     function loop(){
       const w=canvas.width,h=canvas.height;
@@ -574,13 +569,13 @@ EXPERIENCES.rain = {
       });
       if(!winner){
         const finished = drops.find(d=>d.y>h-10);
-        if(finished){ winner=finished; status.textContent='🏆 that one won!'; }
+        if(finished){ winner=finished; status.textContent='🏆 That one won!'; }
       }
       raf=requestAnimationFrame(loop);
     }
     loop();
     const row=addCtrlRow();
-    row.appendChild(pillBtn('↺ new race', spawn));
+    row.appendChild(pillBtn('↺ New race', spawn));
     this._cleanup=()=>cancelAnimationFrame(raf);
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
@@ -589,10 +584,9 @@ EXPERIENCES.rain = {
 /* ---- 4. STONE KICK ---- */
 EXPERIENCES.stone = {
   mount(body,hint){
-    hint.textContent='Click the stone to kick it.';
+    hint.textContent='Tap or click the stone to kick it.';
     const {canvas,ctx}=makeCanvasWrap();
-    let raf;
-    let stone, dust=[];
+    let raf, stone, dust=[];
     function reset(){
       const w=canvas.width,h=canvas.height;
       stone={x:w*0.25,y:h*0.72,vx:0,vy:0,r:16,onGround:true};
@@ -605,10 +599,9 @@ EXPERIENCES.stone = {
       stone.vy = -(8+Math.random()*4);
       stone.onGround=false;
     }
-    canvas.addEventListener('click', e=>{
-      const r=canvas.getBoundingClientRect();
-      const x=(e.clientX-r.left)*canvas.width/r.width, y=(e.clientY-r.top)*canvas.height/r.height;
-      if((x-stone.x)**2+(y-stone.y)**2 < (stone.r*3)**2) kick();
+    canvas.addEventListener('pointerdown', e=>{
+      const p=point(e,canvas);
+      if((p.x-stone.x)**2+(p.y-stone.y)**2 < (stone.r*3.5)**2) kick();
     });
     function loop(){
       const w=canvas.width,h=canvas.height, ground=h*0.75;
@@ -631,7 +624,7 @@ EXPERIENCES.stone = {
       raf=requestAnimationFrame(loop);
     }
     loop();
-    const row=addCtrlRow(); row.appendChild(pillBtn('↺ reset', reset));
+    const row=addCtrlRow(); row.appendChild(pillBtn('↺ Reset Stone', reset));
     this._cleanup=()=>cancelAnimationFrame(raf);
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
@@ -640,8 +633,9 @@ EXPERIENCES.stone = {
 /* ---- 5. ANTS ---- */
 EXPERIENCES.ants = {
   mount(body,hint){
-    hint.textContent='Click to drop a crumb — watch the ants find it.';
+    hint.textContent='Tap to drop a crumb — watch the ants find it.';
     const {canvas,ctx}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     let raf, ants=[], crumb=null;
     function reset(){
       const w=canvas.width,h=canvas.height; ants=[];
@@ -649,9 +643,8 @@ EXPERIENCES.ants = {
       crumb=null;
     }
     reset();
-    canvas.addEventListener('click', e=>{
-      const r=canvas.getBoundingClientRect();
-      crumb={x:(e.clientX-r.left)*canvas.width/r.width, y:(e.clientY-r.top)*canvas.height/r.height};
+    canvas.addEventListener('pointerdown', e=>{
+      crumb=point(e,canvas);
     });
     function loop(){
       const w=canvas.width,h=canvas.height;
@@ -667,19 +660,19 @@ EXPERIENCES.ants = {
           targetA = ant.a + Math.sin(ant.wander)*0.15;
         }
         ant.a += (targetA-ant.a)*0.15;
-        ant.x += Math.cos(ant.a)*ant.speed*devicePixelRatio*0.6;
-        ant.y += Math.sin(ant.a)*ant.speed*devicePixelRatio*0.6;
+        ant.x += Math.cos(ant.a)*ant.speed*dpr*0.6;
+        ant.y += Math.sin(ant.a)*ant.speed*dpr*0.6;
         if(ant.x<0)ant.x=w; if(ant.x>w)ant.x=0; if(ant.y<0)ant.y=h; if(ant.y>h)ant.y=0;
         ctx.save(); ctx.translate(ant.x,ant.y); ctx.rotate(ant.a);
         ctx.fillStyle='#2b2419';
-        ctx.beginPath(); ctx.ellipse(0,0,5,2.2,0,0,7); ctx.fill();
-        ctx.beginPath(); ctx.ellipse(6,0,3,1.6,0,0,7); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(0,0,5*dpr,2.2*dpr,0,0,7); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(6*dpr,0,3*dpr,1.6*dpr,0,0,7); ctx.fill();
         ctx.restore();
       });
       raf=requestAnimationFrame(loop);
     }
     loop();
-    const row=addCtrlRow(); row.appendChild(pillBtn('↺ shoo them away', reset));
+    const row=addCtrlRow(); row.appendChild(pillBtn('↺ Shoo away', reset));
     this._cleanup=()=>cancelAnimationFrame(raf);
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
@@ -688,16 +681,17 @@ EXPERIENCES.ants = {
 /* ---- 6. DVD BOUNCE ---- */
 EXPERIENCES.dvd = {
   mount(body,hint){
-    hint.textContent='Wait for it… wait for it…';
+    hint.textContent='Wait for it… or tap the logo to nudge it!';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; wrap.appendChild(status);
     let raf, hits=0, corners=0;
     const colors=['#A23E2E','#2E6E71','#D6A03D','#5B6B6E','#D9829A'];
     let ci=0;
-    let logo={x:60,y:60,vx:3.2,vy:2.6,w:120,h:46};
+    let logo={x:40,y:40,vx:3,vy:2.4,w:100,h:40};
     canvas.addEventListener('pointerdown', e=>{
-      const p=point(e,canvas), lx=logo.x+logo.w*devicePixelRatio/2, ly=logo.y+logo.h*devicePixelRatio/2;
-      if(Math.hypot(p.x-lx,p.y-ly)<100*devicePixelRatio){
+      const p=point(e,canvas), lx=logo.x+logo.w*dpr/2, ly=logo.y+logo.h*dpr/2;
+      if(Math.hypot(p.x-lx,p.y-ly)<90*dpr){
         logo.vx+=(p.x<lx?1:-1)*1.2; logo.vy+=(p.y<ly?1:-1)*1.2;
         popAt(canvas,e.clientX,e.clientY,colors);
       }
@@ -705,19 +699,19 @@ EXPERIENCES.dvd = {
     function loop(){
       const w=canvas.width,h=canvas.height;
       ctx.fillStyle='#111'; ctx.fillRect(0,0,w,h);
-      logo.x+=logo.vx*devicePixelRatio*0.6; logo.y+=logo.vy*devicePixelRatio*0.6;
+      logo.x+=logo.vx*dpr*0.6; logo.y+=logo.vy*dpr*0.6;
       let hitX=false,hitY=false;
-      if(logo.x<=0||logo.x+logo.w*devicePixelRatio>=w){logo.vx*=-1; hitX=true;}
-      if(logo.y<=0||logo.y+logo.h*devicePixelRatio>=h){logo.vy*=-1; hitY=true;}
+      if(logo.x<=0||logo.x+logo.w*dpr>=w){logo.vx*=-1; hitX=true;}
+      if(logo.y<=0||logo.y+logo.h*dpr>=h){logo.vy*=-1; hitY=true;}
       if(hitX||hitY){ci=(ci+1)%colors.length; hits++;}
       if(hitX&&hitY){corners++; status.textContent=`🎉 CORNER HIT! (${corners})`;}
-      else status.textContent=`wall hits: ${hits} · tap DVD to nudge it`;
-      logo.x=Math.max(0,Math.min(w-logo.w*devicePixelRatio,logo.x));
-      logo.y=Math.max(0,Math.min(h-logo.h*devicePixelRatio,logo.y));
+      else status.textContent=`wall hits: ${hits} · tap DVD to nudge`;
+      logo.x=Math.max(0,Math.min(w-logo.w*dpr,logo.x));
+      logo.y=Math.max(0,Math.min(h-logo.h*dpr,logo.y));
       ctx.fillStyle=colors[ci];
-      ctx.font=`${28*devicePixelRatio}px 'Space Mono', monospace`;
+      ctx.font=`${24*dpr}px 'Space Mono', monospace`;
       ctx.textBaseline='middle';
-      ctx.fillText('DVD', logo.x+8, logo.y+logo.h*devicePixelRatio/2);
+      ctx.fillText('DVD', logo.x+8, logo.y+logo.h*dpr/2);
       raf=requestAnimationFrame(loop);
     }
     loop();
@@ -729,13 +723,14 @@ EXPERIENCES.dvd = {
 /* ---- 7. PAMBARAM - SPINNING TOP ---- */
 EXPERIENCES.pambaram = {
   mount(body,hint){
-    hint.textContent='Drag the string knob to pull the cord and release to spin!';
+    hint.textContent='Drag the cord knob right/down and release to spin!';
     const {canvas,ctx}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     let raf, spin=0, wobble=0, cordPull=0, isDraggingCord=false, startCordY=0;
 
     canvas.addEventListener('pointerdown', e=>{
       const p=point(e,canvas);
-      if(p.x > canvas.width*0.55 && p.y > canvas.height*0.4){
+      if(p.x > canvas.width*0.5 && p.y > canvas.height*0.35){
         isDraggingCord=true;
         startCordY=e.clientY;
       }
@@ -766,7 +761,7 @@ EXPERIENCES.pambaram = {
       wobble = spin > 0.1 ? Math.sin(Date.now()*0.015) * Math.max(0, (5-spin)*2.5) : 15;
 
       const topX = w*0.45;
-      const topY = groundY - 8*devicePixelRatio;
+      const topY = groundY - 8*dpr;
 
       ctx.save();
       ctx.translate(topX, topY);
@@ -774,13 +769,13 @@ EXPERIENCES.pambaram = {
 
       ctx.fillStyle='#4a4a4a';
       ctx.beginPath();
-      ctx.moveTo(-4*devicePixelRatio, 0);
-      ctx.lineTo(4*devicePixelRatio, 0);
-      ctx.lineTo(0, 10*devicePixelRatio);
+      ctx.moveTo(-4*dpr, 0);
+      ctx.lineTo(4*dpr, 0);
+      ctx.lineTo(0, 10*dpr);
       ctx.closePath(); ctx.fill();
 
-      const topH = 110*devicePixelRatio;
-      const topW = 75*devicePixelRatio;
+      const topH = 95*dpr;
+      const topW = 65*dpr;
 
       const grad=ctx.createLinearGradient(-topW/2, 0, topW/2, 0);
       grad.addColorStop(0,'#b45309');
@@ -793,40 +788,40 @@ EXPERIENCES.pambaram = {
       ctx.bezierCurveTo(-topW*0.6, -topH*0.35, -topW*0.6, -topH*0.8, 0, -topH*0.95);
       ctx.bezierCurveTo(topW*0.6, -topH*0.8, topW*0.6, -topH*0.35, 0, 0);
       ctx.fillStyle=grad; ctx.fill();
-      ctx.strokeStyle='#5a2c07'; ctx.lineWidth=2*devicePixelRatio; ctx.stroke();
+      ctx.strokeStyle='#5a2c07'; ctx.lineWidth=2*dpr; ctx.stroke();
 
-      ctx.strokeStyle='#A23E2E'; ctx.lineWidth=6*devicePixelRatio;
-      ctx.beginPath(); ctx.ellipse(0, -topH*0.6, topW*0.45, 8*devicePixelRatio, 0, 0, Math.PI); ctx.stroke();
-      ctx.strokeStyle='#2E6E71'; ctx.lineWidth=4*devicePixelRatio;
-      ctx.beginPath(); ctx.ellipse(0, -topH*0.4, topW*0.32, 6*devicePixelRatio, 0, 0, Math.PI); ctx.stroke();
+      ctx.strokeStyle='#A23E2E'; ctx.lineWidth=5*dpr;
+      ctx.beginPath(); ctx.ellipse(0, -topH*0.6, topW*0.45, 7*dpr, 0, 0, Math.PI); ctx.stroke();
+      ctx.strokeStyle='#2E6E71'; ctx.lineWidth=3*dpr;
+      ctx.beginPath(); ctx.ellipse(0, -topH*0.4, topW*0.32, 5*dpr, 0, 0, Math.PI); ctx.stroke();
 
       ctx.fillStyle='#78350f';
-      ctx.beginPath(); ctx.ellipse(0, -topH*0.96, 12*devicePixelRatio, 5*devicePixelRatio, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(0, -topH*0.96, 10*dpr, 4*dpr, 0, 0, Math.PI*2); ctx.fill();
 
       ctx.restore();
 
-      const cordStartX = topX + 15*devicePixelRatio;
-      const cordStartY = groundY - 50*devicePixelRatio;
-      const cordEndX = topX + 100*devicePixelRatio + cordPull*1.8;
-      const cordEndY = groundY - 20*devicePixelRatio + cordPull;
+      const cordStartX = topX + 12*dpr;
+      const cordStartY = groundY - 45*dpr;
+      const cordEndX = topX + 80*dpr + cordPull*1.6;
+      const cordEndY = groundY - 18*dpr + cordPull;
 
       ctx.beginPath();
       ctx.moveTo(cordStartX, cordStartY);
-      ctx.quadraticCurveTo(cordStartX+40, cordStartY+20+cordPull*0.4, cordEndX, cordEndY);
-      ctx.strokeStyle='#e6dfc8'; ctx.lineWidth=4*devicePixelRatio; ctx.stroke();
+      ctx.quadraticCurveTo(cordStartX+30, cordStartY+15+cordPull*0.4, cordEndX, cordEndY);
+      ctx.strokeStyle='#e6dfc8'; ctx.lineWidth=3.5*dpr; ctx.stroke();
 
-      ctx.beginPath(); ctx.arc(cordEndX, cordEndY, 9*devicePixelRatio, 0, Math.PI*2);
+      ctx.beginPath(); ctx.arc(cordEndX, cordEndY, 8*dpr, 0, Math.PI*2);
       ctx.fillStyle='#A23E2E'; ctx.fill();
 
-      ctx.fillStyle='#5b5344'; ctx.font=`${12*devicePixelRatio}px 'Space Mono'`;
-      ctx.fillText(spin>0.5 ? `Spinning fast: ${Math.round(spin*20)} RPM` : 'Pull string right/down and release!', 14*devicePixelRatio, 24*devicePixelRatio);
+      ctx.fillStyle='#5b5344'; ctx.font=`${11*dpr}px 'Space Mono'`;
+      ctx.fillText(spin>0.5 ? `Spinning fast: ${Math.round(spin*20)} RPM` : 'Pull string & release!', 12*dpr, 20*dpr);
 
       raf=requestAnimationFrame(loop);
     }
     loop();
 
     const row=addCtrlRow();
-    row.appendChild(pillBtn('⚡ Hard Pull String', ()=>{spin+=14;}));
+    row.appendChild(pillBtn('⚡ Hard Pull', ()=>{spin+=14;}));
     row.appendChild(pillBtn('↺ Reset Top', ()=>{spin=0;}));
 
     this._cleanup=()=>cancelAnimationFrame(raf);
@@ -837,8 +832,9 @@ EXPERIENCES.pambaram = {
 /* ---- 8. ERASER PENCIL DOTS ---- */
 EXPERIENCES.pencil = {
   mount(body,hint){
-    hint.textContent='Click or tap on the white eraser to poke holes and graphite black dots with your pencil tip!';
+    hint.textContent='Tap on the eraser to poke graphite black dots with pencil tip!';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; status.textContent='dots: 0'; wrap.appendChild(status);
     let dots = [];
     let pencilPos = {x:0, y:0, poking:false};
@@ -875,21 +871,21 @@ EXPERIENCES.pencil = {
       ctx.fillStyle='#e1d7c3'; ctx.fillRect(w*0.1, h*0.15, w*0.8, h*0.75);
 
       const ex=w*0.25, ey=h*0.28, ew=w*0.5, eh=h*0.48;
-      ctx.fillStyle='rgba(0,0,0,0.12)'; ctx.fillRect(ex+8, ey+8, ew, eh);
+      ctx.fillStyle='rgba(0,0,0,0.12)'; ctx.fillRect(ex+6, ey+6, ew, eh);
       ctx.fillStyle='#fbfbfb'; ctx.fillRect(ex, ey, ew, eh);
-      ctx.strokeStyle='#d8d4c9'; ctx.lineWidth=3; ctx.strokeRect(ex, ey, ew, eh);
+      ctx.strokeStyle='#d8d4c9'; ctx.lineWidth=2.5; ctx.strokeRect(ex, ey, ew, eh);
 
       const sw = ew * 0.4;
       ctx.fillStyle='#2563eb'; ctx.fillRect(ex, ey, sw, eh);
-      ctx.fillStyle='#ffffff'; ctx.font=`${14*devicePixelRatio}px 'Space Mono'`;
+      ctx.fillStyle='#ffffff'; ctx.font=`${12*dpr}px 'Space Mono'`;
       ctx.save(); ctx.translate(ex+sw/2, ey+eh/2); ctx.rotate(-Math.PI/2);
       ctx.textAlign='center'; ctx.fillText('NON-DUST', 0, 4);
       ctx.restore();
 
       dots.forEach(d=>{
-        ctx.beginPath(); ctx.arc(d.x, d.y, d.r*devicePixelRatio, 0, Math.PI*2);
+        ctx.beginPath(); ctx.arc(d.x, d.y, d.r*dpr, 0, Math.PI*2);
         ctx.fillStyle='#1c1917'; ctx.fill();
-        ctx.beginPath(); ctx.arc(d.x-1, d.y-1, (d.r+1)*devicePixelRatio, 0, Math.PI*2);
+        ctx.beginPath(); ctx.arc(d.x-1, d.y-1, (d.r+1)*dpr, 0, Math.PI*2);
         ctx.strokeStyle='rgba(0,0,0,0.25)'; ctx.stroke();
       });
 
@@ -899,17 +895,17 @@ EXPERIENCES.pencil = {
       ctx.translate(px, py);
       ctx.rotate(pencilPos.poking ? -0.4 : -0.6);
 
-      ctx.fillStyle='#eab308'; ctx.fillRect(0, -6*devicePixelRatio, 120*devicePixelRatio, 12*devicePixelRatio);
+      ctx.fillStyle='#eab308'; ctx.fillRect(0, -5*dpr, 100*dpr, 10*dpr);
       ctx.beginPath();
-      ctx.moveTo(0, -6*devicePixelRatio);
-      ctx.lineTo(-24*devicePixelRatio, 0);
-      ctx.lineTo(0, 6*devicePixelRatio);
+      ctx.moveTo(0, -5*dpr);
+      ctx.lineTo(-20*dpr, 0);
+      ctx.lineTo(0, 5*dpr);
       ctx.fillStyle='#fde68a'; ctx.fill();
 
       ctx.beginPath();
-      ctx.moveTo(-16*devicePixelRatio, -2*devicePixelRatio);
-      ctx.lineTo(-24*devicePixelRatio, 0);
-      ctx.lineTo(-16*devicePixelRatio, 2*devicePixelRatio);
+      ctx.moveTo(-14*dpr, -2*dpr);
+      ctx.lineTo(-20*dpr, 0);
+      ctx.lineTo(-14*dpr, 2*dpr);
       ctx.fillStyle='#26221b'; ctx.fill();
 
       ctx.restore();
@@ -919,38 +915,39 @@ EXPERIENCES.pencil = {
     loop();
 
     const row=addCtrlRow();
-    row.appendChild(pillBtn('↺ Clean Fresh Eraser', reset));
+    row.appendChild(pillBtn('↺ Clean Eraser', reset));
 
     this._cleanup=()=>cancelAnimationFrame(raf);
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
 };
 
-/* ---- 9. CYLINDRICAL MAGNETS ---- */
+/* ---- 9. CYLINDRICAL MAGNETS (PHYSICS RE-ENGINEERED) ---- */
 EXPERIENCES.magnets = {
   mount(body,hint){
-    hint.textContent='Drag the magnets! Watch them snap together or push each other across the frame.';
+    hint.textContent='Drag the magnets! Opposites (N-S) attract & snap; Likes (N-N / S-S) push away!';
     const wrap=document.createElement('div'); wrap.className='exp-canvas-wrap'; wrap.style.background='#fdf7ea';
     stageBody.appendChild(wrap);
     const status=document.createElement('div'); status.className='status'; status.textContent='Drag them close…'; wrap.appendChild(status);
 
-    const MAG_W = 120, MAG_H = 44;
+    const isMobile = window.innerWidth < 560;
+    const MAG_W = isMobile ? 100 : 124, MAG_H = isMobile ? 38 : 44;
 
     function makeCylinderMag(x, y, flipped){
       const el=document.createElement('div');
-      el.style.cssText=`position:absolute; left:${x}px; top:${y}px; width:${MAG_W}px; height:${MAG_H}px; border-radius:22px;
-        display:flex; cursor:grab; box-shadow:0 6px 14px rgba(0,0,0,.22); user-select:none; touch-action:none; border:2px solid #333; overflow:hidden; z-index:5;`;
+      el.style.cssText=`position:absolute; left:${x}px; top:${y}px; width:${MAG_W}px; height:${MAG_H}px; border-radius:${MAG_H/2}px;
+        display:flex; cursor:grab; box-shadow:0 6px 14px rgba(0,0,0,.22); user-select:none; touch-action:none; border:2px solid #222; overflow:hidden; z-index:5;`;
       
       const p1=document.createElement('div'), p2=document.createElement('div');
-      [p1,p2].forEach(p=>{ p.style.cssText='flex:1; display:flex; align-items:center; justify-content:center; color:#fff; font-family:Space Mono; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.5);'; });
+      [p1,p2].forEach(p=>{ p.style.cssText=`flex:1; display:flex; align-items:center; justify-content:center; color:#fff; font-family:Space Mono; font-weight:bold; font-size:${isMobile?11:13}px; text-shadow:0 1px 2px rgba(0,0,0,0.6);`; });
       
       function updatePoles(){
         if(!el.flipped){
-          p1.style.background='linear-gradient(180deg, #d32f2f, #991b1b)'; p1.textContent='N';
+          p1.style.background='linear-gradient(180deg, #dc2626, #991b1b)'; p1.textContent='N';
           p2.style.background='linear-gradient(180deg, #0284c7, #075985)'; p2.textContent='S';
         } else {
           p1.style.background='linear-gradient(180deg, #0284c7, #075985)'; p1.textContent='S';
-          p2.style.background='linear-gradient(180deg, #d32f2f, #991b1b)'; p2.textContent='N';
+          p2.style.background='linear-gradient(180deg, #dc2626, #991b1b)'; p2.textContent='N';
         }
       }
       el.flipped = flipped;
@@ -961,15 +958,15 @@ EXPERIENCES.magnets = {
       return el;
     }
 
-    const m1=makeCylinderMag(40, 100, false);
-    const m2=makeCylinderMag(260, 140, false);
+    const m1=makeCylinderMag(20, 80, false);
+    const m2=makeCylinderMag(isMobile?150:240, 120, false);
 
     function clampBounds(el){
       const wr=wrap.getBoundingClientRect();
       let x = parseFloat(el.style.left)||0;
       let y = parseFloat(el.style.top)||0;
-      x = Math.max(0, Math.min(wr.width - MAG_W, x));
-      y = Math.max(0, Math.min(wr.height - MAG_H, y));
+      x = Math.max(4, Math.min(wr.width - MAG_W - 4, x));
+      y = Math.max(4, Math.min(wr.height - MAG_H - 4, y));
       el.style.left = x + 'px';
       el.style.top = y + 'px';
       return {x, y};
@@ -978,40 +975,57 @@ EXPERIENCES.magnets = {
     function checkPhysics(active){
       clampBounds(m1); clampBounds(m2);
       const r1=m1.getBoundingClientRect(), r2=m2.getBoundingClientRect();
-      const c1={x:r1.left+r1.width/2, y:r1.top+r1.height/2};
-      const c2={x:r2.left+r2.width/2, y:r2.top+r2.height/2};
+      
+      // Calculate pole points (Left and Right ends of each magnet)
+      const m1_leftPole = { x: r1.left + MAG_W*0.25, y: r1.top + MAG_H*0.5, name: m1.flipped ? 'S' : 'N' };
+      const m1_rightPole = { x: r1.left + MAG_W*0.75, y: r1.top + MAG_H*0.5, name: m1.flipped ? 'N' : 'S' };
 
-      const dx = c2.x - c1.x;
-      const dy = c2.y - c1.y;
-      const dist = Math.hypot(dx, dy);
+      const m2_leftPole = { x: r2.left + MAG_W*0.25, y: r2.top + MAG_H*0.5, name: m2.flipped ? 'S' : 'N' };
+      const m2_rightPole = { x: r2.left + MAG_W*0.75, y: r2.top + MAG_H*0.5, name: m2.flipped ? 'N' : 'S' };
 
-      const leftIsM1 = c1.x < c2.x;
-      const pole1Facing = leftIsM1 ? (m1.flipped ? 'N' : 'S') : (m1.flipped ? 'S' : 'N');
-      const pole2Facing = leftIsM1 ? (m2.flipped ? 'S' : 'N') : (m2.flipped ? 'N' : 'S');
-      const attracts = pole1Facing !== pole2Facing;
+      // Find the two closest interacting poles between the two magnets
+      const pairs = [
+        { p1: m1_leftPole, p2: m2_leftPole, d: Math.hypot(m1_leftPole.x - m2_leftPole.x, m1_leftPole.y - m2_leftPole.y) },
+        { p1: m1_leftPole, p2: m2_rightPole, d: Math.hypot(m1_leftPole.x - m2_rightPole.x, m1_leftPole.y - m2_rightPole.y) },
+        { p1: m1_rightPole, p2: m2_leftPole, d: Math.hypot(m1_rightPole.x - m2_leftPole.x, m1_rightPole.y - m2_leftPole.y) },
+        { p1: m1_rightPole, p2: m2_rightPole, d: Math.hypot(m1_rightPole.x - m2_rightPole.x, m1_rightPole.y - m2_rightPole.y) }
+      ];
 
-      if(dist < 190){
-        const force = Math.min(18, (1 - dist/190) * 20);
+      pairs.sort((a,b)=>a.d - b.d);
+      const closest = pairs[0];
+      const dist = closest.d;
+      const attracts = (closest.p1.name !== closest.p2.name); // Opposites attract, Likes repel
+
+      const threshold = isMobile ? 140 : 180;
+
+      if(dist < threshold){
+        const force = Math.min(20, (1 - dist/threshold) * 22);
         const other = active === m1 ? m2 : m1;
         
         let ox = parseFloat(other.style.left)||0;
         let oy = parseFloat(other.style.top)||0;
 
-        const dirX = (dx / (dist || 1)) * (active === m1 ? 1 : -1);
-        const dirY = (dy / (dist || 1)) * (active === m1 ? 1 : -1);
+        const c1={x:r1.left+r1.width/2, y:r1.top+r1.height/2};
+        const c2={x:r2.left+r2.width/2, y:r2.top+r2.height/2};
+        const dx = c2.x - c1.x;
+        const dy = c2.y - c1.y;
+        const centerDist = Math.hypot(dx, dy) || 1;
+
+        const dirX = (dx / centerDist) * (active === m1 ? 1 : -1);
+        const dirY = (dy / centerDist) * (active === m1 ? 1 : -1);
 
         if(attracts){
-          status.textContent = dist < 125 ? '🧲 SNAP! Opposite poles attracted!' : 'Attracting together…';
+          status.textContent = dist < 70 ? `🧲 SNAP! Opposite poles (${closest.p1.name} & ${closest.p2.name}) attracted!` : 'Attracting together…';
           other.style.left = (ox + dirX * force) + 'px';
-          other.style.top = (oy + dirY * force * 0.5) + 'px';
+          other.style.top = (oy + dirY * force * 0.4) + 'px';
         } else {
-          status.textContent = '↔ REPEL! Like poles push apart!';
-          other.style.left = (ox - dirX * force * 1.2) + 'px';
+          status.textContent = `↔ REPEL! Like poles (${closest.p1.name} & ${closest.p2.name}) push apart!`;
+          other.style.left = (ox - dirX * force * 1.3) + 'px';
           other.style.top = (oy - dirY * force * 0.6) + 'px';
         }
         clampBounds(other);
       } else {
-        status.textContent = 'Move them together to test magnetic pull';
+        status.textContent = 'Move magnets close to test magnetic poles';
       }
     }
 
@@ -1033,19 +1047,20 @@ EXPERIENCES.magnets = {
     });
 
     const row=addCtrlRow();
-    row.appendChild(pillBtn('🔀 Flip Magnet 1', ()=>{m1.flipped=!m1.flipped; m1.updatePoles(); checkPhysics(m1);}));
-    row.appendChild(pillBtn('🔀 Flip Magnet 2', ()=>{m2.flipped=!m2.flipped; m2.updatePoles(); checkPhysics(m2);}));
+    row.appendChild(pillBtn('🔀 Flip Left Magnet', ()=>{m1.flipped=!m1.flipped; m1.updatePoles(); checkPhysics(m1);}));
+    row.appendChild(pillBtn('🔀 Flip Right Magnet', ()=>{m2.flipped=!m2.flipped; m2.updatePoles(); checkPhysics(m2);}));
 
     this._cleanup=()=>{};
   },
   unmount(){ if(this._cleanup) this._cleanup(); }
 };
 
-/* ---- 10. CHIPS ON FINGERS ---- */
+/* ---- 10. CHIPS ON FINGERS (CLEAN, SOLID HAND) ---- */
 EXPERIENCES.chips = {
   mount(body,hint){
-    hint.textContent='Drag each cone chip onto the fingertips of the hand!';
+    hint.textContent='Drag each cone chip onto the 5 fingertips!';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; status.textContent='Chips on hand: 0 / 5'; wrap.appendChild(status);
     const celebrate=document.createElement('div'); celebrate.className='celebrate'; wrap.appendChild(celebrate);
 
@@ -1055,13 +1070,14 @@ EXPERIENCES.chips = {
     function initChips(){
       chips = [];
       const w=canvas.width, h=canvas.height;
+      const step = w / 6;
       for(let i=0; i<5; i++){
         chips.push({
           id: i,
-          x: w*0.18 + i*(w*0.16),
-          y: h*0.84,
-          homeX: w*0.18 + i*(w*0.16),
-          homeY: h*0.84,
+          x: step * (i + 1),
+          y: h * 0.86,
+          homeX: step * (i + 1),
+          homeY: h * 0.86,
           fingerIdx: null
         });
       }
@@ -1071,12 +1087,14 @@ EXPERIENCES.chips = {
 
     function getFingerTips(){
       const w=canvas.width, h=canvas.height;
+      const s = Math.min(w/440, h/320);
+      const cx = w * 0.5, cy = h * 0.52;
       return [
-        {x: w*0.30, y: h*0.48, name:'Thumb'},
-        {x: w*0.39, y: h*0.26, name:'Index'},
-        {x: w*0.49, y: h*0.20, name:'Middle'},
-        {x: w*0.59, y: h*0.25, name:'Ring'},
-        {x: w*0.68, y: h*0.44, name:'Pinky'}
+        {x: cx - 78*s, y: cy - 28*s, name:'Thumb', angle: -0.65},
+        {x: cx - 40*s, y: cy - 90*s, name:'Index', angle: -0.2},
+        {x: cx + 0*s,  y: cy - 108*s, name:'Middle', angle: 0},
+        {x: cx + 40*s, y: cy - 88*s, name:'Ring', angle: 0.2},
+        {x: cx + 76*s, y: cy - 40*s, name:'Pinky', angle: 0.5}
       ];
     }
 
@@ -1085,7 +1103,7 @@ EXPERIENCES.chips = {
     canvas.addEventListener('pointerdown', e=>{
       const p=point(e,canvas);
       chips.forEach(c=>{
-        if(Math.hypot(p.x - c.x, p.y - c.y) < 26*devicePixelRatio){
+        if(Math.hypot(p.x - c.x, p.y - c.y) < 32*dpr){
           draggedChip = c;
           c.fingerIdx = null;
         }
@@ -1097,7 +1115,7 @@ EXPERIENCES.chips = {
         const tips = getFingerTips();
         let snapped = false;
         tips.forEach((tip, idx)=>{
-          if(Math.hypot(draggedChip.x - tip.x, draggedChip.y - tip.y) < 32*devicePixelRatio){
+          if(Math.hypot(draggedChip.x - tip.x, draggedChip.y - tip.y) < 36*dpr){
             chips.forEach(other=>{ if(other.fingerIdx === idx) other.fingerIdx = null; });
             draggedChip.x = tip.x;
             draggedChip.y = tip.y;
@@ -1114,7 +1132,7 @@ EXPERIENCES.chips = {
         const count = chips.filter(c=>c.fingerIdx!==null).length;
         status.textContent = `Chips on hand: ${count} / 5`;
         if(count === 5){
-          celebrate.textContent = '🧤 Witch Fingers Activated!';
+          celebrate.textContent = '🧤 Witch Claws Activated!';
           celebrate.classList.add('show');
         }
       }
@@ -1131,53 +1149,124 @@ EXPERIENCES.chips = {
     let raf;
     function render(){
       const w=canvas.width, h=canvas.height;
-      ctx.fillStyle='#f6f0e2'; ctx.fillRect(0,0,w,h);
+      ctx.fillStyle='#f7f2e7'; ctx.fillRect(0,0,w,h);
 
-      const tips = getFingerTips();
+      const s = Math.min(w/440, h/320);
+      const cx = w * 0.5, cy = h * 0.52;
+      const skin = '#cf9170';
+      const skinShade = '#a86a4c';
+      const skinNail = '#dfa98e';
 
-      ctx.fillStyle='#8a5845';
-      ctx.strokeStyle='#6e4130'; ctx.lineWidth=2.5*devicePixelRatio;
+      // 1. Draw Entire Solid Hand as a Continuous Contour (No seams/tears)
+      ctx.fillStyle = skin;
+      ctx.strokeStyle = skinShade;
+      ctx.lineWidth = 3*dpr;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
 
       ctx.beginPath();
-      ctx.ellipse(w*0.49, h*0.52, w*0.15, h*0.14, 0, 0, Math.PI*2);
-      ctx.fill(); ctx.stroke();
+      // Start at left wrist
+      ctx.moveTo(cx - 36*s, cy + 130*s);
+      ctx.lineTo(cx - 38*s, cy + 60*s);
+      
+      // Thumb outer contour
+      ctx.quadraticCurveTo(cx - 62*s, cy + 30*s, cx - 82*s, cy - 20*s);
+      ctx.arc(cx - 78*s, cy - 28*s, 9*s, Math.PI*0.8, -Math.PI*0.1);
+      ctx.quadraticCurveTo(cx - 52*s, cy - 8*s, cx - 44*s, cy - 20*s); // Thumb web
 
-      tips.forEach((t, i)=>{
-        ctx.beginPath();
-        const baseAngle = (i-2)*0.20;
-        const baseX = w*0.49 + Math.sin(baseAngle)*w*0.10;
-        const baseY = h*0.50;
-        ctx.lineWidth = 11*devicePixelRatio;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = '#8a5845';
-        ctx.moveTo(baseX, baseY);
-        ctx.lineTo(t.x, t.y);
-        ctx.stroke();
+      // Index finger
+      ctx.lineTo(cx - 48*s, cy - 80*s);
+      ctx.arc(cx - 40*s, cy - 90*s, 8.5*s, Math.PI, 0);
+      ctx.lineTo(cx - 31*s, cy - 28*s); // Index-middle web
 
+      // Middle finger
+      ctx.lineTo(cx - 10*s, cy - 98*s);
+      ctx.arc(cx + 0*s, cy - 108*s, 9*s, Math.PI, 0);
+      ctx.lineTo(cx + 10*s, cy - 28*s); // Middle-ring web
+
+      // Ring finger
+      ctx.lineTo(cx + 31*s, cy - 78*s);
+      ctx.arc(cx + 40*s, cy - 88*s, 8.5*s, Math.PI, 0);
+      ctx.lineTo(cx + 48*s, cy - 20*s); // Ring-pinky web
+
+      // Pinky finger
+      ctx.lineTo(cx + 68*s, cy - 32*s);
+      ctx.arc(cx + 76*s, cy - 40*s, 7.5*s, Math.PI*0.9, -Math.PI*0.1);
+      ctx.quadraticCurveTo(cx + 70*s, cy + 30*s, cx + 42*s, cy + 60*s); // Outer palm edge
+
+      // Right wrist
+      ctx.lineTo(cx + 40*s, cy + 130*s);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // 2. Add Subtle Palm Crease Lines
+      ctx.strokeStyle = skinShade;
+      ctx.lineWidth = 2*dpr;
+      
+      ctx.beginPath(); // Life line
+      ctx.arc(cx - 14*s, cy + 22*s, 30*s, 0.4, 1.8);
+      ctx.stroke();
+
+      ctx.beginPath(); // Head line
+      ctx.arc(cx + 8*s, cy - 5*s, 36*s, 0.9, 2.1);
+      ctx.stroke();
+
+      // 3. Draw Nails
+      const tips = getFingerTips();
+      ctx.fillStyle = skinNail;
+      tips.forEach(t=>{
         ctx.beginPath();
-        ctx.ellipse(t.x, t.y, 4*devicePixelRatio, 5*devicePixelRatio, 0, 0, Math.PI*2);
-        ctx.fillStyle='#a4725e'; ctx.fill();
+        ctx.arc(t.x, t.y + 2*s, 4.5*s, 0, Math.PI*2);
+        ctx.fill();
       });
 
-      ctx.fillStyle='#e6dbc5'; ctx.fillRect(0, h*0.74, w, h*0.26);
-      ctx.strokeStyle='rgba(0,0,0,0.1)'; ctx.strokeRect(0, h*0.74, w, h*0.26);
+      // 4. Bottom Tray
+      ctx.fillStyle='#e6dbc5'; ctx.fillRect(0, h*0.76, w, h*0.24);
+      ctx.strokeStyle='rgba(0,0,0,0.1)'; ctx.strokeRect(0, h*0.76, w, h*0.24);
 
+      // 5. Render Cone Chips
       chips.forEach(c=>{
         ctx.save();
         ctx.translate(c.x, c.y);
-        ctx.fillStyle='#f59e0b';
-        ctx.strokeStyle='#b45309'; ctx.lineWidth=2;
+        
+        let chipRot = 0;
+        if(c.fingerIdx !== null){
+          chipRot = tips[c.fingerIdx].angle;
+        }
+        ctx.rotate(chipRot);
+
+        const chipW = 10*dpr, chipH = 26*dpr;
+        
+        ctx.fillStyle='rgba(0,0,0,0.12)';
+        ctx.beginPath();
+        ctx.ellipse(0, chipH*0.45, chipW*1.1, chipW*0.35, 0, 0, Math.PI*2);
+        ctx.fill();
+
+        ctx.fillStyle='#eab308';
+        ctx.strokeStyle='#ca8a04'; ctx.lineWidth=1.5;
 
         ctx.beginPath();
-        ctx.moveTo(-9*devicePixelRatio, 12*devicePixelRatio);
-        ctx.lineTo(9*devicePixelRatio, 12*devicePixelRatio);
-        ctx.lineTo(0, -18*devicePixelRatio);
+        ctx.moveTo(-chipW, chipH*0.35);
+        ctx.lineTo(chipW, chipH*0.35);
+        ctx.lineTo(0, -chipH*0.65);
         ctx.closePath();
         ctx.fill(); ctx.stroke();
 
+        ctx.strokeStyle='rgba(161, 98, 7, 0.4)';
+        ctx.lineWidth=1;
+        for(let l = -chipH*0.3; l <= chipH*0.2; l += 5*dpr){
+          ctx.beginPath();
+          ctx.moveTo(-chipW * (1 - (l+chipH*0.3)/chipH), l);
+          ctx.lineTo(chipW * (1 - (l+chipH*0.3)/chipH), l);
+          ctx.stroke();
+        }
+
         ctx.beginPath();
-        ctx.ellipse(0, 12*devicePixelRatio, 9*devicePixelRatio, 3.5*devicePixelRatio, 0, 0, Math.PI*2);
+        ctx.ellipse(0, chipH*0.35, chipW, chipW*0.35, 0, 0, Math.PI*2);
         ctx.fillStyle='#78350f'; ctx.fill();
+        ctx.stroke();
+
         ctx.restore();
       });
 
@@ -1196,19 +1285,20 @@ EXPERIENCES.chips = {
 /* ---- 11. WATER BOTTLE TORNADO ---- */
 EXPERIENCES.tornado = {
   mount(body,hint){
-    hint.textContent='Click & spin your mouse fast in circles inside the bottle to form the vortex tornado!';
+    hint.textContent='Spin finger/mouse fast in circles inside the bottle to form vortex!';
     const {canvas,ctx}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     let raf, particles=[], vortexForce=0, lastAngle=null, lastTime=Date.now();
 
     function reset(){
       particles=[]; vortexForce=0;
       const w=canvas.width, h=canvas.height;
-      for(let i=0; i<160; i++){
+      for(let i=0; i<150; i++){
         particles.push({
           x: w*0.5 + (Math.random()-0.5)*w*0.22,
           y: h*0.28 + Math.random()*h*0.52,
           a: Math.random()*Math.PI*2,
-          r: 5 + Math.random()*45
+          r: 5 + Math.random()*40
         });
       }
     }
@@ -1240,26 +1330,26 @@ EXPERIENCES.tornado = {
 
       vortexForce *= 0.985;
 
-      const bw = w*0.34, bh = h*0.75, bx = cx - bw/2, by = h*0.14;
+      const bw = Math.min(w*0.38, 160*dpr), bh = h*0.75, bx = cx - bw/2, by = h*0.14;
       
-      ctx.fillStyle='#0284c7'; ctx.fillRect(cx-14*devicePixelRatio, by-18*devicePixelRatio, 28*devicePixelRatio, 18*devicePixelRatio);
+      ctx.fillStyle='#0284c7'; ctx.fillRect(cx-12*dpr, by-16*dpr, 24*dpr, 16*dpr);
 
       ctx.fillStyle='rgba(224, 242, 254, 0.65)';
-      ctx.strokeStyle='#7dd3fc'; ctx.lineWidth=3*devicePixelRatio;
+      ctx.strokeStyle='#7dd3fc'; ctx.lineWidth=3*dpr;
       ctx.beginPath();
-      ctx.roundRect(bx, by, bw, bh, [18, 18, 12, 12]);
+      ctx.roundRect(bx, by, bw, bh, [16*dpr, 16*dpr, 10*dpr, 10*dpr]);
       ctx.fill(); ctx.stroke();
 
       ctx.fillStyle='rgba(186, 230, 253, 0.45)';
-      ctx.fillRect(bx+4, by+bh*0.15, bw-8, bh*0.84);
+      ctx.fillRect(bx+3, by+bh*0.15, bw-6, bh*0.84);
 
       if(vortexForce > 1.2){
         ctx.beginPath();
-        const topFunnelW = Math.min(bw*0.4, vortexForce*5*devicePixelRatio);
+        const topFunnelW = Math.min(bw*0.4, vortexForce*4.5*dpr);
         ctx.moveTo(cx - topFunnelW, by+bh*0.18);
         ctx.lineTo(cx + topFunnelW, by+bh*0.18);
-        ctx.lineTo(cx + 4*devicePixelRatio, by+bh*0.75);
-        ctx.lineTo(cx - 4*devicePixelRatio, by+bh*0.75);
+        ctx.lineTo(cx + 3*dpr, by+bh*0.75);
+        ctx.lineTo(cx - 3*dpr, by+bh*0.75);
         ctx.closePath();
         ctx.fillStyle='rgba(255, 255, 255, 0.7)'; ctx.fill();
         ctx.strokeStyle='rgba(14, 165, 233, 0.6)'; ctx.stroke();
@@ -1269,13 +1359,13 @@ EXPERIENCES.tornado = {
         p.a += 0.02 + vortexForce*0.06;
         const currentR = p.r * (1 + vortexForce*0.08);
         const px = cx + Math.cos(p.a) * Math.min(bw*0.42, currentR);
-        const py = p.y + Math.sin(p.a) * 4;
-        ctx.beginPath(); ctx.arc(px, py, 2.5*devicePixelRatio, 0, Math.PI*2);
+        const py = p.y + Math.sin(p.a) * 3.5;
+        ctx.beginPath(); ctx.arc(px, py, 2*dpr, 0, Math.PI*2);
         ctx.fillStyle='rgba(14, 165, 233, 0.65)'; ctx.fill();
       });
 
-      ctx.fillStyle='#5b5344'; ctx.font=`${12*devicePixelRatio}px 'Space Mono'`;
-      ctx.fillText(vortexForce>3 ? '🌪️ TORNADO ACTIVE!' : 'Swirl in circles to build tornado', 14*devicePixelRatio, 24*devicePixelRatio);
+      ctx.fillStyle='#5b5344'; ctx.font=`${11*dpr}px 'Space Mono'`;
+      ctx.fillText(vortexForce>3 ? '🌪️ TORNADO ACTIVE!' : 'Swirl circles to build tornado', 12*dpr, 20*dpr);
 
       raf=requestAnimationFrame(loop);
     }
@@ -1293,8 +1383,9 @@ EXPERIENCES.tornado = {
 /* ---- 12. PEEL THE GUM (GLUE HEART PEEL) ---- */
 EXPERIENCES.gum = {
   mount(body,hint){
-    hint.textContent='Drag the glue bottle to pour a heart on the hand, wait 10 seconds to dry, then peel it slowly!';
+    hint.textContent='Tap pour glue on the hand, wait 10 seconds to dry, then peel it slowly!';
     const {canvas,ctx,wrap}=makeCanvasWrap();
+    const dpr = window.devicePixelRatio || 1;
     const status=document.createElement('div'); status.className='status'; status.textContent='Step 1: Pour glue on hand'; wrap.appendChild(status);
     const celebrate=document.createElement('div'); celebrate.className='celebrate'; wrap.appendChild(celebrate);
 
@@ -1377,12 +1468,12 @@ EXPERIENCES.gum = {
       const hx = w*0.5, hy = h*0.54;
       ctx.fillStyle='#8d5b4c';
       ctx.beginPath(); ctx.ellipse(hx, hy, w*0.22, h*0.26, 0, 0, Math.PI*2); ctx.fill();
-      ctx.strokeStyle='#6e4438'; ctx.lineWidth=3*devicePixelRatio; ctx.stroke();
+      ctx.strokeStyle='#6e4438'; ctx.lineWidth=3*dpr; ctx.stroke();
 
       if(pourProgress > 0){
         ctx.save();
-        ctx.translate(hx, hy - 10*devicePixelRatio);
-        const scale = (Math.min(100, pourProgress)/100) * devicePixelRatio;
+        ctx.translate(hx, hy - 10*dpr);
+        const scale = (Math.min(100, pourProgress)/100) * dpr;
         ctx.scale(scale, scale);
 
         ctx.beginPath();
@@ -1402,19 +1493,19 @@ EXPERIENCES.gum = {
 
         if(peel > 0 && !torn){
           ctx.beginPath();
-          ctx.arc(0, -20 - peel*0.4, 20*devicePixelRatio, 0, Math.PI);
+          ctx.arc(0, -20 - peel*0.4, 20*dpr, 0, Math.PI);
           ctx.fillStyle='rgba(255,255,255,0.85)'; ctx.fill();
         }
         ctx.restore();
       }
 
       if(state === 'POUR'){
-        const bx = bottlePos.x || w*0.8;
+        const bx = bottlePos.x || w*0.75;
         const by = bottlePos.y || h*0.4;
         ctx.save(); ctx.translate(bx, by);
-        ctx.fillStyle='#f97316'; ctx.fillRect(-15*devicePixelRatio, -35*devicePixelRatio, 30*devicePixelRatio, 70*devicePixelRatio);
-        ctx.fillStyle='#ffffff'; ctx.fillRect(-8*devicePixelRatio, -50*devicePixelRatio, 16*devicePixelRatio, 15*devicePixelRatio);
-        ctx.fillStyle='#ea580c'; ctx.font=`${9*devicePixelRatio}px 'Space Mono'`; ctx.fillText('GUM', -10*devicePixelRatio, 0);
+        ctx.fillStyle='#f97316'; ctx.fillRect(-14*dpr, -32*dpr, 28*dpr, 64*dpr);
+        ctx.fillStyle='#ffffff'; ctx.fillRect(-7*dpr, -46*dpr, 14*dpr, 14*dpr);
+        ctx.fillStyle='#ea580c'; ctx.font=`${8.5*dpr}px 'Space Mono'`; ctx.fillText('GUM', -9*dpr, 0);
         ctx.restore();
       }
 
