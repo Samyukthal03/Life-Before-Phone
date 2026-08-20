@@ -2,8 +2,8 @@ Life Before Phone
 
 A lightweight, single-page web app celebrating simple, screen-free childhood memories and pastimes.
 
-Summary
-This project is an interactive digital museum featuring 12 nostalgic activities we used to do before smartphones existed. Everything runs directly in the browser with plain HTML, CSS, and JavaScript—no extra setups, installations, or frameworks required.
+Summary: 
+This project is an interactive digital museum featuring 12 nostalgic activities we used to do before smartphones existed. Everything runs directly in the browser with plain HTML, CSS, and JavaScript, no extra setups, installations, or frameworks required.
 
 Included Activities
 1. Sand food: Shape sand in a pot, add water, and garnish with leaves or flowers.
